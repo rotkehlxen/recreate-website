@@ -1,0 +1,34 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0;
+}
+
+/* Style the header section */
+/* ************************ */
+
+header {
+  background-image: url("images/banner-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  /* scale image with size of container */
+  background-size: cover;
+  height: 200px;
+  color: white;
+  /* here used for vertical centering of child elements */
+  display: flex;
+}
+
+header div {
+  /* center both heading elements inside this div horizontally */
+  text-align: center;
+  /* center the div vertically within the header element */
+  margin: auto;
+}
+
+header div h1 {
+  font-weight: 300;
+  line-height: 1.2;
+  font-size: calc(1.475rem + 2.7vw);
+}
