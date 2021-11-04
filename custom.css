@@ -9,6 +9,7 @@ body {
 /* ************************ */
 
 header {
+  position: relative;
   background-image: url("images/banner-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -19,16 +20,37 @@ header {
   /* here used for vertical centering of child elements */
   display: flex;
 }
+/* This content is added quite literally directly after the content of the header.
+However, by placing the element absolutely and relative to the header element, we can
+create a second layer! */
+header::after {
+  position: absolute;
+  content: "";
+  height: 200px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+}
 
 header div {
+  /* position: relative; */
   /* center both heading elements inside this div horizontally */
   text-align: center;
   /* center the div vertically within the header element */
   margin: auto;
+  /* to avoid that the div is overlayed by the header background (alternatively using position relative also fixes this */
+  z-index: 10;
 }
 
 header div h1 {
-  font-weight: 300;
-  line-height: 1.2;
   font-size: calc(1.475rem + 2.7vw);
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+header div p {
+  display: block;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 0;
 }
