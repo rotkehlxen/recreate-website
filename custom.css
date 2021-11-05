@@ -19,10 +19,11 @@ header {
   color: white;
   /* here used for vertical centering of child elements */
   display: flex;
+  box-sizing: border-box;
 }
-/* This content is added quite literally directly after the content of the header.
-However, by placing the element absolutely and relative to the header element, we can
-create a second layer! */
+/* This creates a pseudo-element named "::after" as the last child of the header element.
+By placing the pseudo-element relative to the header element (and giving it the same dimensions
+as the header, we can essentially create a second layer! */
 header::after {
   position: absolute;
   content: "";
@@ -32,13 +33,13 @@ header::after {
 }
 
 header div {
-  /* position: relative; */
   /* center both heading elements inside this div horizontally */
   text-align: center;
   /* center the div vertically within the header element */
   margin: auto;
   /* to avoid that the div is overlayed by the header background (alternatively using position relative also fixes this */
   z-index: 10;
+  /* position: relative; */
 }
 
 header div h1 {
@@ -53,4 +54,58 @@ header div p {
   font-weight: 300;
   font-size: 1.25rem;
   margin: 0;
+}
+
+/* container for navigation and main content */
+/* ***************************************** */
+.container {
+  max-width: 800px;
+  /* fixed width in combination with "margin: auto" centers the container on the page horizontally */
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/* style nav bar  */
+/* ************** */
+
+nav {
+  margin-top: 20px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+nav ul li {
+  margin: 0;
+  padding: 0;
+  /* remove bullet points from list elements */
+  list-style: none;
+}
+
+nav a {
+  /* remove underline from link elements */
+  text-decoration: none;
+  color: #0d6efd;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom: none;
+  margin: 0;
+  /* use block display so that the surrounding content is aware of the elements padding! */
+  display: block;
+  /* it is crucial to provide flex: 1 to the a element and not to li, because flexing the li elements
+  makes them use all of the space across the page. */
+  flex: 1;
+}
+
+/* Style main section */
+/* ****************** */
+.main-heading {
+  margin-top: 0;
 }
